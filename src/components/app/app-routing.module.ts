@@ -32,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'pet-boolean', component: PetBooleanComponent, canActivate: [AuthGuard] },
   { path: 'person-boolean', component: PersonBooleanComponent, canActivate: [AuthGuard] },
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuard] },
+  { path: '#', component: PetComponent },
   {
     path: '',
     redirectTo: '/login',
@@ -40,14 +41,15 @@ const appRoutes: Routes = [
   {
     path: 'callback',
     component: CallbackComponent
-  }
-  // { path: '**', component: PageNotFoundComponent }
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       appRoutes,
+      { useHash: true }
       // { enableTracing: true } // <-- debugging purposes only
     )
 

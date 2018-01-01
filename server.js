@@ -92,6 +92,7 @@ app.post('/petSignup', (req, res) => {
   });
 });
 
+
 // Creates a new user
 app.post('/personSignup', (req, res) => {
   const { email } = req.body.profile;
