@@ -48,10 +48,10 @@
               <div class="carousel-item active">
                 <img class="d-block img-fluid" src={{photos[0].url}} alt="First slide">
               </div>
-              <div class="carousel-item">
+              <div *ngIf='photos[1]' class="carousel-item">
                 <img class="d-block img-fluid" src={{photos[1].url}} alt="Second slide">
               </div>
-              <div class="carousel-item">
+              <div *ngIf='photos[2]' class="carousel-item">
                 <img class="d-block img-fluid" src={{photos[2].url}} (error)="this.src='assets/logo.png'" alt="Third slide">
               </div>
             </div>
@@ -73,9 +73,9 @@
     </div>
   </div>
   <div class="col-sm-8">
-    <div class="panel-body" *ngIf='requests'>
+    <div class="panel-body" >
       <h1>Hello {{user.name}} ! </h1>
-      <h3>Here are the requests you have made for your pet!</h3>
+      <h3 *ngIf='requests.length'>Here are the requests you have made for your pet!</h3>
       <ul *ngFor="let request of requests">
         <div style='padding-bottom:10px; color:white' id='request'>
           <h6>Location to have your pet picked up at: {{request.location}}</h6>
@@ -83,7 +83,7 @@
           <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="onClick()">Don't need someone anymore?</button>
         </div>
       </ul>
-      <h3 *ngIf='activities'>Here are your upcoming commitments!</h3>
+      <h3 *ngIf='activities.length'>Here are your upcoming commitments!</h3>
       <ul *ngFor="let activity of activities">
         <div style='padding-bottom:10px; color:white' id='request'>
           <h6>Location to get the pet at: {{activity.location}}</h6>

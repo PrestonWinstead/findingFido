@@ -41,10 +41,10 @@
         <div class="carousel-item active">
           <img class="d-block img-fluid" src={{photos[0].url}} alt="First slide">
         </div>
-        <div class="carousel-item">
+        <div *ngIf="photos[1]" class="carousel-item">
           <img class="d-block img-fluid" src={{photos[1].url}} alt="Second slide">
         </div>
-        <div class="carousel-item">
+        <div *ngIf="photos[2]" class="carousel-item">
           <img class="d-block img-fluid" src={{photos[2].url}} alt="Third slide">
         </div>
       </div>
