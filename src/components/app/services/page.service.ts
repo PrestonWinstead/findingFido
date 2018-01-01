@@ -12,16 +12,16 @@ export class PageService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private photoHeaders = new Headers({'Accept': 'application/json' });
 
-  private reviewUrl = 'http://localhost:80/review';  
-  private chatUrl = 'http://localhost:80/chat'
-  private activitiesUrl = 'http://localhost:80/activities'
-  private dashboardUrl = 'http://localhost:80/dashboard'
-  private petDashboardUrl = 'http://localhost:80/petDashboard'
-  private photosUrl = 'http://localhost:80/photos'
-  private userProfileUrl = 'http://localhost:80/userProfile'
-  private personDashboardUrl = 'http://localhost:80/PersonDashboard'
-  private toDoListUrl = 'http://localhost:80/todo'
-  private mapUrl = 'http://localhost:80/map'
+  private reviewUrl = 'http://localhost:9000/review';  
+  private chatUrl = 'http://localhost:9000/chat'
+  private activitiesUrl = 'http://localhost:9000/activities'
+  private dashboardUrl = 'http://localhost:9000/dashboard'
+  private petDashboardUrl = 'http://localhost:9000/petDashboard'
+  private photosUrl = 'http://localhost:9000/photos'
+  private userProfileUrl = 'http://localhost:9000/userProfile'
+  private personDashboardUrl = 'http://localhost:9000/PersonDashboard'
+  private toDoListUrl = 'http://localhost:9000/todo'
+  private mapUrl = 'http://localhost:9000/map'
 
   constructor(
     private http: Http,

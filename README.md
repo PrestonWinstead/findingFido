@@ -19,10 +19,9 @@
 1. [Contributing](#contributing)
 
 ## Usage
-
-> -on starting the app: 
->-npm run build in one terminal
->-npm run start in another terminal
+> To start the app in development mode: 
+> -`npm run build`
+> -In another terminal tab, `npm start`
 
 ## Requirements
 

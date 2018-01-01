@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build1": "webpack -d --watch",
-    "build": "webpack-dev-server --host 0.0.0.0 --port 8080",
+    "build": "webpack-dev-server",
     "start": "NODE_ENV=development nodemon server.js"
   },
   "repository": {

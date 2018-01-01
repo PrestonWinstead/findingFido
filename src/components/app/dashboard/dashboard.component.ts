@@ -76,7 +76,7 @@ export class DashboardComponent implements OnInit {
       .then(activities => console.log(activities))
   }
   upload() {
-    this.makeFileRequest("http://localhost:80/photos", [this.profile.name], this.filesToUpload).then((result) => {
+    this.makeFileRequest("http://localhost:9000/photos", [this.profile.name], this.filesToUpload).then((result) => {
       console.log(result);
     }, (error) => {
       console.log(error);

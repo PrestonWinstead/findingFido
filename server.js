@@ -1,6 +1,8 @@
 // Npm packages
 const express = require('express');
 
+require('dotenv').config();
+
 const bodyParser = require('body-parser');
 
 const fileUpload = require('express-fileupload');
@@ -66,7 +68,7 @@ const authCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: 'https://findo.auth0.com/.well-known/jwks.json',
   }),
-  audience: 'http://localhost:80',
+  audience: 'http://localhost:9000',
   issuer: 'https://findo.auth0.com/',
   algorithms: ['RS256'],
 });
