@@ -86,7 +86,8 @@ body {
   height: 5em;
 }
 /* Lili adding style */
-#schedule #profile {
+#schedule,
+#profile {
   color: white;
   font-weight: bold;
   font-size: medium 

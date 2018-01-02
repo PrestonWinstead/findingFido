@@ -41,11 +41,6 @@ const app = express();
 // Check for environment variables, set port accordingly
 const port = process.env.NODE_ENV === 'development' ? 9000 : 80;
 
-// Need this to serve our bundled index.html
-app.use(express.static(`${__dirname}/dist`));
-
-// Need this to serve the logo picture
-// app.use(express.static(`${__dirname}/client/assets`));
 
 app.use(bodyParser.json());
 
@@ -68,11 +63,25 @@ const authCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: 'https://findo.auth0.com/.well-known/jwks.json',
   }),
-  audience: 'http://localhost:9000',
+  audience: 'http://159.89.41.217',
   issuer: 'https://findo.auth0.com/',
   algorithms: ['RS256'],
 });
 
+// Need this to serve our bundled index.html
+// app.use(express.static(`${__dirname}/dist`));
+app.get('/', (req, res) => {
+  app.use(express.static('/', authCheck, `${__dirname}/dist`));
+  res.sendFile(`${__dirname}/dist`);
+});
+
+// Need this to serve the logo picture
+// app.use(express.static(`${__dirname}/client/assets`));
+// const checkScopes = jwt(['read:messages']);
+
+app.get('/callback', authCheck, (req, res) => {
+  res.redirect('/dashboard');
+});
 
 // Takes in information about the pet, puts it in a pet table with a link to the user
 app.post('/petSignup', (req, res) => {
@@ -202,8 +211,6 @@ app.post('/activities', (req, res) => {
 
 // Adds a to do to the database
 app.post('/todo', (req, res) => {
-  console.log(req.body);
-  // Update this one a lot
   const userEmail = req.body.profile.email;
   const {
     location,
@@ -339,7 +346,7 @@ app.get('/photos/:email', (req, res) => {
   });
 });
 
-// Gets the lat/long location for the map
+// Gets the lat/long location for the map. Not used, but leaving so that maps can show circles
 app.post('/map', (req, res) => {
   const { location } = req.body;
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location},+New+Orleans,+LA&key=${google.token}`)

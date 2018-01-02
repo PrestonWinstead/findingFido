@@ -16,9 +16,9 @@ import 'rxjs/add/operator/toPromise';
 export class EmailService {
 
   private headers = new Headers({ 'Content-Type': 'application/json' });
-  private profileUrl = 'http://localhost:9000/profile';  
-  private personUrl = 'http://localhost:9000/personSignup';
-  private petUrl = 'http://localhost:9000/petSignup';
+  private profileUrl = 'http://159.89.41.217/profile';  
+  private personUrl = 'http://159.89.41.217/personSignup';
+  private petUrl = 'http://159.89.41.217/petSignup';
 
   constructor(
     private http: Http,

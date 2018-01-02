@@ -35,11 +35,6 @@
 
 <div class="row" id='PersonDashboard'>
   <div class="col-sm-4">
-    <h3>Upload Pictures of your pet!</h3>
-    <div style='padding-bottom:20px; padding-top:20px'>
-      <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
-      <button type="button" (click)="upload()">Upload</button>
-    </div>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="onPictures()">See Your Pet's Pictures</button>
     <div *ngIf='photos'>
       <h3>Your Pet's Pictures</h3>
@@ -71,11 +66,16 @@
         </div>
       </ul> -->
     </div>
+    <h5>Upload more pictures of your pet!</h5>
+    <div style='padding-bottom:20px; padding-top:20px'>
+      <input type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
+      <button type="button" (click)="upload()">Upload</button>
+    </div>
   </div>
   <div class="col-sm-8">
     <div class="panel-body" >
       <h1>Hello {{user.name}} ! </h1>
-      <h3 *ngIf='requests.length'>Here are the requests you have made for your pet!</h3>
+      <h3 *ngIf='requests && requests.length'>Here are the requests you have made for your pet!</h3>
       <ul *ngFor="let request of requests">
         <div style='padding-bottom:10px; color:white' id='request'>
           <h6>Location to have your pet picked up at: {{request.location}}</h6>
@@ -83,7 +83,7 @@
           <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="onClick()">Don't need someone anymore?</button>
         </div>
       </ul>
-      <h3 *ngIf='activities.length'>Here are your upcoming commitments!</h3>
+      <h3 *ngIf='activities && activities.length'>Here are your upcoming commitments!</h3>
       <ul *ngFor="let activity of activities">
         <div style='padding-bottom:10px; color:white' id='request'>
           <h6>Location to get the pet at: {{activity.location}}</h6>
